@@ -1,0 +1,75 @@
+/*
+
+Your tasks:
+1. Body copy: 
+   apply some styling to the body text of your HTML page. 
+   Experiment with some following text properties:
+       font-family, font-size, line-height, color, font-size, 
+       text-transform, letter-spacing
+
+2. Create some spacing between the article tags
+   Hint: use the margin and padding properties
+
+3. Style the navigation bar.
+   Hint: use the following text properties:
+     background-color, padding
+
+4. Style the img tag and see if you can make it look like it’s sitting in a picture frame.
+   Hint: use the following box-model properties: 
+     padding, border, border-radius, box-shadow, width
+
+5. Create a class that, when applied, turns the text to hot pink.
+   Style the links (anchor tag) by experimenting with 
+   the :hover keyword/pseudo-class, so when you hover over it, 
+   the underline disappears.
+
+   Hint: check out this example:
+      https://www.w3schools.com/cssref/sel_hover.asp 
+
+6. Style the h1 and h2 tags so that they use Google fonts:
+
+   Hint: check out these resources:
+     * https://eecs130.github.io/spring2022/css-reference/fonts/
+     * https://www.w3schools.com/css/css_font_google.asp 
+
+*/
+
+nav{
+   background-color: beige;
+   padding: 2%;
+   text-align: center;
+   font-family: cursive;
+}
+body{
+   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: larger;
+   line-height: normal;
+   color: rgb(82, 14, 230);
+   font-size: larger;
+   text-transform: none;
+   letter-spacing: normal;
+   background-color: rgb(206, 218, 239);
+}
+
+a:hover{
+   color: blueviolet;
+}
+
+img{
+   padding: 10%, 10%;
+   border: 5px coral solid;
+   border-radius: 5%;
+   box-shadow: 5px 5px rgba(239, 148, 115, 0.756);
+   width: auto;
+   align-self: center;
+}
+
+h1,h2{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   color: crimson;
+   text-align: center;
+}
+
+h2{
+   text-align: left;
+}
