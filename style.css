@@ -1,0 +1,23 @@
+/* You're welcome to change any of this! */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: #2DC7FF;
+}
+header, section {
+    padding: 20px;
+}
+p, li {
+    line-height: 1.5em;
+}
+
+#inspiration {
+    background-color: #EABA6B;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
