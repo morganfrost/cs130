@@ -5,35 +5,77 @@
         <!-- stylesheets and metadata go here -->
        <title>My CS 130 Homepage</title>      
        <link rel="stylesheet" href="style.css">
-   </head>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Rubik+Mono+One&family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/72e4592c3b.js" crossorigin="anonymous"></script>
+</head>
+
    <body>
-       <!-- HTML content tags go here. Change anything you want! -->
        <header>
-           <h1>MORGAN LEARNS TO CODE</h1>
+           <h1>
+               MORGAN LEARNS TO CODE
+               <i class="fa-solid fa-desktop"></i>
+           </h1>
            <h3>#WomeninSTEAM</h3> 
        </header> 
+
        <main>
-            <section id="tutorials">
-                <h2>Tutorials</h2>
-                <!-- 
-                    Links to your tutorial assignments go here.
-                    When you submit a new tutorial, add a link to it
-                    here (if applicable)
-                -->
-            </section>
-            <section id="homework">
-                <h2>Homework</h2>
-                <!-- 
-                    Links to your Homework assignments go here.
-                    When you submit a new HW assignment, add a link to it here (if applicable)
-                -->
-            </section>
+           <div class="grid-container">
+            <div class="grid-item"><h2>
+                TUTORIALS
+                <i class="fa-solid fa-person-chalkboard"></i>
+            </h2>
+            <ul>
+                <li><a href="tutorials\tutorial01">Tutorial 01</a></li>
+            </ul>
+            </div>
+            <div class="grid-item">
+                <h2>
+                    HOMEWORK
+                <i class="fa-solid fa-pencil"></i>
+                </h2>
+                <ul>
+                <li>Homework 01 (TBD)</li>
+            </ul>
+            </div>
+            
+            </div>
+        </div>
+
             <section id="inspiration">
-                <h2>Design Inspiration</h2>
-                <!-- 
-                    Links to 5-10 websites that inspire you
-                -->
+                <h2>
+                    DESIGN INSPIRATION 
+                </h2>
+                <ul>
+                <li>
+                    <a href="https://www.franshalsmuseum.nl/en/">Frans Hals Museum<br></a>
+                </li>
+                <li>
+                    <a href="https://girlswhocode.com/">Girls Who Code<br></a>
+                </li>
+                <li>
+                    <a href="https://superlist.com/">Superlist<br></a>
+                </li>
+                <li>
+                    <a href="https://theyearofgreta.com/">The Year of Greta<br></a>
+                </li>
+                <li>
+                    <a href="http://slaveryfootprint.org/">Slavery Footprint<br></a>
+                </li>
+            </ul>
+                
             </section>
+
+        <section id="bio">
+            <h2>
+                MEET MORGAN 
+            </h2>
+            <img src="images\Morgan photo.png">
+            <p>Morgan is a sophomore Theatre major who likes blue flowers, 
+                irony, and geese.
+            </p>
+        </section>
         </main>
    </body>
 </html>

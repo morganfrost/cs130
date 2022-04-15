@@ -5,19 +5,100 @@
 
 body {
     margin: 0px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Rubik Mono One', 'Archivo Narrow', 'Rubik', sans-serif;
     color: black;
-    background-color: #2DC7FF;
+    background-color: #FCFAFA;
 }
+
+header{
+    color: black;
+    background-color: #FF5666;
+    text-align: center;
+    line-height: 25px;
+    padding-bottom: 5px;
+    text-size-adjust: auto;
+}
+
+img{
+    width: 100px;
+    height:auto;
+    size-adjust: auto;
+}
+
+h1{
+    text-shadow: 
+3px 3px #EDD3C4;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    background-color: #EDD3C4;
+}
+
+.grid-container ul {
+    text-align: match-parent;
+    padding-left: auto;
+}
+
+a{
+    color:#344966
+}
+
+a:hover{
+    color:#FF5666;
+}
+
+ul{
+    color:#344966;
+    font-style: bold;
+    font-family: 'Rubik';
+    text-align: center;
+    list-style-type: none;
+}
+
 header, section {
-    padding: 20px;
+    padding: 5px;
 }
 p, li {
     line-height: 1.5em;
 }
 
+
 #inspiration {
-    background-color: #EABA6B;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    background-color: #7F95D1;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+#inspiration img{
+    display:inline-block;
+    height:40px;
+    padding: 10%, 10%;
+   border: 50px #FF5666;
+   border-radius: 100%;
+   width: auto;
+}
+
+#bio{
+    background-color: #EDD3C4;
+    text-align: center;
+}
+
+#bio img {
+    height:300px;
+    padding: 10%, 10%;
+   border: 10px #7F95D1;
+   border-radius: 100%;
+   box-shadow: 5px 5px #7F95D1;
+   width: auto;
+   align-self: center;
+}
+
+p{
+    font-family: 'Rubik';
+    color:#344966;
 }
