@@ -1,0 +1,40 @@
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+section{
+    border: 1px solid black;
+}
+
+img{
+    width: 100%;
+}
+
+h2, p, button{
+    margin: 2.5% 2%;
+}
+/*
+Add some style blocks below this line to style the card. 
+Properties to experiment with:
+
+border
+padding
+marging
+height
+width
+*/
+
+@media screen and (max-width: 600px){
+    body{
+        font-size: 1.2em;
+    }
+
+    section{
+        border:none;
+        width: 100%;
+    }
+}
