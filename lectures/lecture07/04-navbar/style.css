@@ -4,9 +4,25 @@ html {
 
 body * {
     box-sizing: border-box;
+    font-family: fantasy;
+    border: solid 1px black;
+    margin: 10px;
+    color: rgb(218, 39, 8);
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+}
+
+nav{
+    display: flex;
+    /* result: all immediate children are placed in the same row 
+    This can be overridden later*/
+    justify-content: space-between;
+}
+
+ul{
+    display: flex;
+    list-style: none;
 }

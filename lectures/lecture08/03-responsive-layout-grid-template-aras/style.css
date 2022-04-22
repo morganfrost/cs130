@@ -15,11 +15,11 @@ body {
   color: #333;
   background-color: snow;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: auto;
 }
 
 .item {
-  padding: 8px;
+  padding: 10px;
   background-color: white;
   border: 4px solid tomato;
   border-radius: 6px;
@@ -33,29 +33,52 @@ body {
 /* Task 3 */
 
 .task-3.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 0.5fr 6fr 0.5fr;
+  grid-template-areas:
+  "header header header"
+  "sidebar navigation ads"
+  "sidebar main ads"
+  "footer footer footer";
+  height: 100vh;
 }
 
 .task-3 .header {
+  grid-area: header;
 }
 
 .task-3 .navigation {
+  grid-area: navigation;
 }
 
 .task-3 .ads {
+  grid-area: ads;
 }
 
 .task-3 .sidebar {
+  grid-area: sidebar;
 }
 
 .task-3 .main {
+  grid-area: main;
 }
 
 .task-3 .footer {
+  grid-area: footer;
 }
 
 
 
 @media (max-width: 1020px) {
+  .task-3.container{
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "nav nav"
+  "sidebar main"
+  "ads footer";
+  }
 }
 
 

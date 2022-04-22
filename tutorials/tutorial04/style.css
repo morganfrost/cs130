@@ -1,0 +1,187 @@
+* {
+   box-sizing: border-box;
+   width: 100%;
+ }
+
+ body * {
+    margin: 0;
+    font-family: fantasy;
+    text-align: center;
+    padding: 1%;
+ }
+
+.container {
+   display: grid;
+   /* border: 1px solid black; */
+   column-gap: 2.5%;
+   row-gap: 2.5%;
+   grid-template-columns: 2fr 1fr 3fr 3fr 1.5fr;
+   grid-template-rows: 1fr 3fr 2fr;
+   grid-template-areas: 
+   "menu1 . . menu2 menu2"
+   "card1 card1 card2 card3 sidebar"
+   "main main main main sidebar"
+   ; 
+   min-height: 100vh;
+}
+
+article, aside, section, main {
+   /* border: solid 1px #000; */
+   display: flex;
+   text-align: center;
+}
+
+.container .menu1{
+   grid-area: menu1;
+   background-color: hotpink;
+}
+
+.container .menu2{
+   grid-area: menu2;
+   background-color: yellow;
+}
+
+.container .card1 {
+   grid-area: card1;
+   background-color: teal;
+}
+
+.container .card2{
+   grid-area: card2;
+   background-color: teal;
+}
+
+.container .card3{
+   grid-area: card3;
+   background-color: teal;
+}
+
+.container .main{
+   grid-area: main;
+   background-color: teal;
+}
+
+.container .aside{
+   grid-area: sidebar;
+   background-color: gray;
+}
+
+
+@media (max-width: 1024px) {
+   .container {
+      display: grid;
+      /* border: 1px solid black; */
+      column-gap: 2.5%;
+      row-gap: 2.5%;
+      grid-template-columns: 4fr 2fr 1fr 5fr;
+      grid-template-rows: 1fr .75fr 6fr 3.5fr 1fr;
+      grid-template-areas: 
+      "menu1 . menu2 menu2"
+      "sidebar sidebar sidebar sidebar"
+      "card1 card1 card2 card2"
+      "card3 card3 card3 card3"
+      "main main main main"
+      ; 
+      min-height: 100vh;
+   }
+   
+   /* article, aside, section, main {
+       border: solid 1px #000;
+   }
+    */
+   .container .menu1{
+      grid-area: menu1;
+      background-color: hotpink;
+   }
+   
+   .container .menu2{
+      grid-area: menu2;
+      background-color: yellow;
+   }
+   
+   .container .card1 {
+      grid-area: card1;
+      background-color: teal;
+   }
+   
+   .container .card2{
+      grid-area: card2;
+      background-color: teal;
+   }
+   
+   .container .card3{
+      grid-area: card3;
+      background-color: teal;
+   }
+   
+   .container .main{
+      grid-area: main;
+      background-color: teal;
+   }
+   
+   .container .aside{
+      grid-area: sidebar;
+      background-color: gray;
+   }   
+}
+
+@media (max-width: 720px) {
+   .container {
+      display: grid;
+      /* border: 1px solid black; */
+      column-gap: 2.5%;
+      row-gap: 2.5%;
+      grid-template-columns: 3fr 5fr;
+      grid-template-rows: 1fr 1fr 3fr 3fr 3fr 3fr 1fr;
+      grid-template-areas: 
+      "menu1 ."
+      "menu2 menu2"
+      "card1 card1"
+      "card2 card2"
+      "card3 card3"
+      "main main"
+      "sidebar sidebar"
+      ; 
+      min-height: 100vh;
+   }
+   
+   article, aside, section, main {
+      /* border: solid 1px #000; */
+      display: flex;
+   }
+   
+   .container .menu1{
+      grid-area: menu1;
+      background-color: hotpink;
+   }
+   
+   .container .menu2{
+      grid-area: menu2;
+      background-color: yellow;
+   }
+   
+   .container .card1 {
+      grid-area: card1;
+      background-color: teal;
+   }
+   
+   .container .card2{
+      grid-area: card2;
+      background-color: teal;
+   }
+   
+   .container .card3{
+      grid-area: card3;
+      background-color: teal;
+   }
+   
+   .container .main{
+      grid-area: main;
+      background-color: teal;
+   }  
+
+   .container .aside{
+      grid-area: sidebar;
+      background-color: gray;
+   }  
+}

@@ -34,10 +34,19 @@ body {
 /* Task 2 */
 
 .task-2.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /*12 columns */
+  /* fr=fractional unit, splits columns into this many units */
 }
 
 .task-2 .item-1 {
+  grid-column-start: 3;
+  grid-column-end: 6;
+  /* so now item-1 starts at column 3 and ends at column 6 */
 }
 
 .task-2 .item-2 {
+  grid-column-start: 7;
+  grid-column-end: 11;
+  /* could also say span: 3 instead of grid-column-end*/
 }
