@@ -38,7 +38,7 @@ h1{
 }
 
 .grid-container ul {
-    text-align: match-parent;
+    text-align: left;
     padding-left: auto;
 }
 
@@ -54,8 +54,18 @@ ul{
     color:#344966;
     font-style: bold;
     font-family: 'Rubik';
-    text-align: center;
+    text-align: left;
     list-style-type: none;
+    margin-left: 200px;
+}
+
+#tutorial05{
+    margin-left: 25px;
+    list-style-type: square;
+}
+
+#inspiration ul{
+    margin-left: 650px;
 }
 
 header, section {
