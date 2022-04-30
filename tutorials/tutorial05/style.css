@@ -113,6 +113,16 @@ button {
     color: black;
 }
 
-.dyslexia-mode{
-    font-size-adjust: 1;
+.dyslexia-mode .content{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 150%;
+    color: #000;
+    margin-top: 3.5em;
+    margin-left: 30%;
+    margin-right: 30%;
+    word-spacing: 1.225ch;
+    line-height: 2.0;
+    letter-spacing: 0.35ch;
+    font-variant-ligatures: none;
 }
