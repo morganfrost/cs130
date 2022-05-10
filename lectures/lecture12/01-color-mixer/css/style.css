@@ -1,7 +1,8 @@
 label {
-  font-weight: bold;
+  font-weight: normal;
   width: 75px;
   display: inline-block;
   text-align: right;
   margin-right: 10px;
+  font-family: fantasy;
 }
