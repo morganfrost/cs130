@@ -36,7 +36,7 @@ const initScreen = () => {
             <button class="image" 
                 onclick="showImage(event)"
                 style="background-image:url('${image}')"
-                data-index=${idx}"
+                data-index=${idx}
                 aria-label="Displays image ${idx} in the main panel."></button>
         </li>`;
     });
@@ -44,18 +44,20 @@ const initScreen = () => {
 
 initScreen();
 
+const imageElements = document.querySelectorAll('.image');
+
+let currentIndex = 0;
+
 const showImage = (ev) => {
     const elem = ev.currentTarget;
     console.log(elem.style.backgroundImage);
+    currentIndex = Number(elem.getAttribute('data-index'))
+    console.log(currentIndex)
     //syntax to set background image:
     //destinationElement.style.backgroundImage = sourceElement.style.backgroundImage;
     const bgImage = elem.style.backgroundImage
     document.querySelector('.featured_image').style.backgroundImage=bgImage
 }
-
-const imageElements = document.querySelectorAll('.image');
-
-let currentIndex = 0;
 
 const showNext = (ev) => {
     if (currentIndex < 7) {
