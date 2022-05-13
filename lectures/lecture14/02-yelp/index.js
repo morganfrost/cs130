@@ -6,15 +6,19 @@
  */
 const showMatchingRestaurants = ev => {
     // ev.preventDefault();
-    let url = 'https://www.apitutor.org/yelp/simple/v3/businesses/search?location=Evanston,%20IL&term=pizza';
+    const term = document.querySelector('#cuisine').value;
+    const location = document.querySelector('#location').value;
+    let url = `https://www.apitutor.org/yelp/simple/v3/businesses/search?location=${location},%20IL&term=${term}`;
     fetch(url)
         .then((response) => {
             return response.json();
         })
         .then(data => {
             console.log(data);
+            for (const restaurant of data) {
+                document.querySelector('#restaurants').innerHTML += `<p>${restaurant.name}<p>`
+            }
         });
 };
-
 
 document.querySelector('#search').addEventListener('click', showMatchingRestaurants);

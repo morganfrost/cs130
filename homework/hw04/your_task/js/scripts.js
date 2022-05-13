@@ -17,31 +17,114 @@ const search = (ev) => {
 }
 
 const getTracks = (term) => {
-    console.log(`
-        get tracks from spotify based on the search term
-        "${term}" and load them into the #tracks section 
-        of the DOM...`);
+    // console.log(`
+    //     get tracks from spotify based on the search term
+    //     "${term}" and load them into the #tracks section 
+    //     of the DOM...`);
+        fetch(baseURL + "?type=track" + `&q=${term}`)
+            .then((response) => response.json())
+            .then((data) => {
+                    if (data.length > 0) {
+                        let firstFive = data.splice(0,5);
+                        let html = firstFive.map(track2HTML);
+                        document.querySelector('#tracks').innerHTML = html;
+                    }
+                    else {
+                        let html = "<p>No tracks found that match your search criteria.<p>";
+                        document.querySelector("#tracks").innerHTML = html;
+                    }
+            });
+        };
+
+const track2HTML = track => {
+    return `
+    <button class="track-item preview" data-preview-track=${track.preview_url} onclick="handleTrackClick(event);">
+        <img src=${track.album.image_url}>
+        <i class="fas play-track fa-play" aria-hidden="true"></i>
+        <div class="label">
+            <h2>${track.album.name}</h2>
+            <p>
+                ${track.artist.name}
+            </p>
+        </div>
+    </button>
+    `;
 };
 
 const getAlbums = (term) => {
-    console.log(`
-        get albums from spotify based on the search term
-        "${term}" and load them into the #albums section 
-        of the DOM...`);
-};
-
-const getArtist = (term) => {
-    console.log(`
-        get artists from spotify based on the search term
-        "${term}" and load the first artist into the #artist section 
-        of the DOM...`);
-        fetch(baseURL + "?tags")
-            .then((response) {
-
+    // console.log(`
+    //     get albums from spotify based on the search term
+    //     "${term}" and load them into the #albums section 
+    //     of the DOM...`);
+        fetch(baseURL + "?type=album" + `&q=${term}`)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.length > 0){
+                    let albumList = data;
+                    let html = albumList.map(album2HTML);
+                    document.querySelector('#albums').innerHTML = html;
+                    console.log(data)
+                }
+                else {
+                    let html = "<p>No albums found that match your search criteria.<p>";
+                    document.querySelector("#albums").innerHTML = html;
+                }
             })
-            .then((myJson))
-
 };
+
+const album2HTML = (album) => {
+    return `
+    <section class="album-card" id=${album.id}>
+        <div>
+            <img src=${album.image_url}>
+            <h2>${album.name}</h2>
+            <div class="footer">
+                <a href=${album.spotify_url} target="_blank">
+                    view on spotify
+                </a>
+            </div>
+        </div>
+    </section>
+    `
+}
+
+let artistResults
+const getArtist = (term) => {
+    // console.log(`
+    //     get artists from spotify based on the search term
+    //     "${term}" and load the first artist into the #artist section 
+    //     of the DOM...`);
+        fetch(baseURL + "?type=artist" + `&q=${term}`)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.length > 0) {
+                    let firstArtist = data[0];
+                    let html = artistHTML(firstArtist)
+                    document.querySelector('#artist').innerHTML = html;
+                } else {
+                    let html = "<p> No artists have been found </p>";
+                    document.querySelector('#artist').innerHTML = html;
+                }            
+});
+};
+
+const artistHTML = (artist) => {
+    return `
+    <section id="artist">
+    <section class="artist-card" id=${artist.id}>
+        <div>
+            <img src=${artist.image_url}>
+            <h2>${artist.name}</h2>
+            <div class="footer">
+                <a href="${artist.spotify_url}" target="_blank">
+                    view on spotify
+                </a>
+            </div>
+        </div>
+    </section>
+    `;
+};
+
 
 const handleTrackClick = (ev) => {
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
