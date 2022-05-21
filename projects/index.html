@@ -1,31 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- stylesheets and metadata go here -->
-        <title>Photos</title>       
+        <title>Laptop Story</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/62a7c74d0d.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" defer></script>
         <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
     </head>
         
-    <body>
-        <!-- HTML content tags go here -->
-        <nav class="navbar">
-            <strong>Photos</strong>
-            <a href="music.html">Music</a>
-            <a href="videos.html">Videos</a>
-        </nav>
-        <main>
-            <h1>Photos</h1>
-            <p>Here are some beautiful photos of flowers.</p>
+    <body id="container">
 
-            <section class="photo-section">
-                <img src="images\daisy.jpg">
-                <img src="images\poppies.jpg">
-                <img src="images\purple.jpg">
+        <section id="login_screen">
+        <h1 class="ml11">
+            <span class="text-wrapper">
+              <span class="letters">Welcome</span>
+            </span>
+          </h1>
+
+          <h2>
+              What is your username?
+          </h2>
+        
+
+        <main>
+            <div id="login">
+            <section id="username_sect">
+                <input type="string" 
+                    placeholder="username" 
+                    id="username" 
+                    value="" 
+                    aria-label= "Username"/>
+            </section>     
+            <section id="enter">
+                <button onclick="enterButton()" type="button" id="click_to_enter">Click to Enter</button>
+            </section>   
+        </section>
+    </div>
+            
+            <div id="homepage_body">
+                <button onclick="initLoginScreen()" type="button" id="logout_button">logout</button>
+                <style>
+                </style>
+                <section id="apps">
+                <button onclick="initMessages()" type="button" id="message_click">messages</button>
+                <button onclick="initNotepad()" type = "button" id="notepad_click">notepad</button>
+                <button onclick="initPhotos()" type="button" id="photo_click">photo gallery</button>
+                <button onclick="initMusic()" type="button" id="music_click">music</button>
+                <!-- <button onclick="initWallpaper()" type="button" id="wallpaper_click">change wallpaper</button> -->
+                <div class="popup" onclick="initWallpaper()" id="wallpaper_click"> change wallpaper
+                    <span class="popuptext" id="wallpaper_popup">This is the wallpaper popup. There will be 
+                        buttons to change the wallpaper accessible in the popup.
+                    </span>
+                </div>
+        
             </section>
+            <section id="control_bar">
+            <h1 id="filler"></h1>
+            <p id="laptop_name">username's laptop</p>
+            </div>
+
+        <div id="messages_page">
+            <p>Messages</p>
+            <button onclick="initMinigame()" type="button" id="minigame_click">minigame</button>
+        </div>
+
+        <div id="notepad">
+            <p>Notepad</p>
+        </div>
+
+        <div id="photos">
+            <p>Photo Gallery</p>
+        </div>
+
+        <div id="music">
+            <p>music</p>
+        </div>
+
+        <div id="minigame">
+            <div id="character"></div>
+            <div id="block"></div>
+        </div>
+
+        <footer id="nav_bar">
+            <button onclick="initMessages()" type="button" id="message_click">messages</button>
+            <button onclick="initNotepad()" type = "button" id="notepad_click">notepad</button>
+            <button onclick="initPhotos()" type="button" id="photo_click">photo gallery</button>
+            <button onclick="initMusic()" type="button" id="music_click">music</button>
+            <button onclick="initHomeScreen()" type="button" id="home_click">home screen</button>
+        </footer>
         </main>
     </body>
 </html>
 
-<!-- project notes
--  
--->

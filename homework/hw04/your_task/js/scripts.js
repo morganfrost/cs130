@@ -39,7 +39,7 @@ const getTracks = (term) => {
 const track2HTML = track => {
     return `
     <button class="track-item preview" data-preview-track=${track.preview_url} onclick="handleTrackClick(event);">
-        <img src=${track.album.image_url}>
+        <img src=${track.album.image_url} alt=${track.album.name} Album Cover>
         <i class="fas play-track fa-play" aria-hidden="true"></i>
         <div class="label">
             <h2>${track.album.name}</h2>
@@ -76,7 +76,7 @@ const album2HTML = (album) => {
     return `
     <section class="album-card" id=${album.id}>
         <div>
-            <img src=${album.image_url}>
+            <img src=${album.image_url} alt="${album.name} Album Cover">
             <h2>${album.name}</h2>
             <div class="footer">
                 <a href=${album.spotify_url} target="_blank">
@@ -113,7 +113,7 @@ const artistHTML = (artist) => {
     <section id="artist">
     <section class="artist-card" id=${artist.id}>
         <div>
-            <img src=${artist.image_url}>
+            <img src=${artist.image_url} alt="Photo of ${artist.name}">
             <h2>${artist.name}</h2>
             <div class="footer">
                 <a href="${artist.spotify_url}" target="_blank">
@@ -125,10 +125,11 @@ const artistHTML = (artist) => {
     `;
 };
 
-
 const handleTrackClick = (ev) => {
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
     console.log(previewUrl);
+    AudioPlayer.setAudioFile(previewUrl);
+    audioPlayer.play();
 }
 
 document.querySelector('#search').onkeyup = (ev) => {
