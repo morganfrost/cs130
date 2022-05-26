@@ -5,6 +5,7 @@ const audioFile = 'https://p.scdn.co/mp3-preview/bfead324ff26bdd67bb793114f7ad3a
 const audioPlayer = AudioPlayer('.player', audioFile);
 
 const search = (ev) => {
+    document.querySelector("footer").style.display="none";
     const term = document.querySelector('#search').value;
     console.log('search for:', term);
     // issue three Spotify queries at once...
@@ -24,10 +25,13 @@ const getTracks = (term) => {
         fetch(baseURL + "?type=track" + `&q=${term}`)
             .then((response) => response.json())
             .then((data) => {
+                console.log(data)
                     if (data.length > 0) {
                         let firstFive = data.splice(0,5);
                         let html = firstFive.map(track2HTML);
+                        // let footerHTML = firstFive.map(track2FooterHTML)
                         document.querySelector('#tracks').innerHTML = html;
+                        // document.querySelector('#footer').innerHTML = footerHTML;
                     }
                     else {
                         let html = "<p>No tracks found that match your search criteria.<p>";
@@ -38,8 +42,8 @@ const getTracks = (term) => {
 
 const track2HTML = track => {
     return `
-    <button class="track-item preview" data-preview-track=${track.preview_url} onclick="handleTrackClick(event);">
-        <img src=${track.album.image_url} alt=${track.album.name} Album Cover>
+    <button class="track-item preview" data-preview-track="${track.preview_url}" onclick="handleTrackClick(event)";>
+        <img src=${track.album.image_url} alt="${track.album.name} Album Cover">
         <i class="fas play-track fa-play" aria-hidden="true"></i>
         <div class="label">
             <h2>${track.album.name}</h2>
@@ -48,8 +52,23 @@ const track2HTML = track => {
             </p>
         </div>
     </button>
-    `;
+    `
+    ;
 };
+
+// const track2FooterHTML = track => {
+//     return `
+//     <div id="current-track" class="track-item" data-preview-track="${track.preview_url}">
+//         <img src=${track.album.image_url} alt="${track.album.name} Album Cover">
+//                 <i class="fas play-track fa-pause" aria-hidden="true"></i>
+//                 <div class="label">
+//                     <h2>${track.album.name}</h2>
+//                     <p>
+//                     ${track.artist.name}
+//                     </p>
+//                 </div>
+//             </div>`;
+// };
 
 const getAlbums = (term) => {
     // console.log(`
@@ -102,7 +121,7 @@ const getArtist = (term) => {
                     let html = artistHTML(firstArtist)
                     document.querySelector('#artist').innerHTML = html;
                 } else {
-                    let html = "<p> No artists have been found </p>";
+                    let html = "<p> No artists found that match your search criteria. </p>";
                     document.querySelector('#artist').innerHTML = html;
                 }            
 });
@@ -126,11 +145,19 @@ const artistHTML = (artist) => {
 };
 
 const handleTrackClick = (ev) => {
+    document.querySelector("footer").style.display="flex";
+    console.log(ev.currentTarget);
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
-    console.log(previewUrl);
-    AudioPlayer.setAudioFile(previewUrl);
+    if (previewUrl === "null") {
+        console.log("This track is unavailable on Spotify.")
+    }
+    else {
+    console.log("previewUrl=", previewUrl);
+    console.log(document.querySelector('#current-track').innerHTML);
+    console.log(ev.currentTarget.dataset);
+    audioPlayer.setAudioFile(previewUrl);
     audioPlayer.play();
-}
+}}
 
 document.querySelector('#search').onkeyup = (ev) => {
     // Number 13 is the "Enter" key on the keyboard

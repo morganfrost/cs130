@@ -55,7 +55,7 @@ main {
 
 footer {
     grid-area: bottom;
-    border-top: dotted #999 1px;   
+    border-top: dotted #999 1px;  
 }
 
 /* ***********************************************************
