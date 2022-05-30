@@ -22,6 +22,7 @@ document.querySelector("#nav_bar").style.display="none";
 document.querySelector("#photos").style.display="none";
 document.querySelector("#music").style.display="none";
 document.querySelector('#minigame').style.display="none";
+document.querySelector("#sketchpad").style.display="none";
 
 console.log('login initialized 2');
 
@@ -40,7 +41,7 @@ anime.timeline({loop: true})
     targets: '.ml11 .line',
     translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
     easing: "easeOutExpo",
-    duration: 700,
+    duration: 1500,
     delay: 500
   })
   .add({
@@ -62,29 +63,13 @@ anime.timeline({loop: true})
 
   initLoginScreen()
 
-// const testImage = () => {
-//     document.querySelector('.avatars').innerHTML += template
-// };
-
-// testImage()
-
-// const initScreen = () => {
-//     images.forEach((image, idx) => {
-//         document.querySelector('avatars').innerHTML += `
-//         <li class="avatar">
-//             <button class="image" 
-//                 onclick=${selectAvatar}
-//                 style="url('${image}')"
-//                 aria-label="Selects ${idx} as user's avatar."></button>
-//         </li>`;
-//     });
-// };
-
-// initScreen();
-
-// const selectAvatar = () => {
-//     console.log("You have selected an avatar")
-// }
+document.querySelector('#login').onkeyup = (ev) => {
+    // Number 13 is the "Enter" key on the keyboard
+    console.log(ev.keyCode);
+    if (ev.keyCode === 13) {
+        enterButton();
+    }
+};
 
 const initHomeScreen = () => {
   document.querySelector("#laptop_name").innerHTML=(`${username}'s laptop`);
@@ -92,10 +77,11 @@ const initHomeScreen = () => {
   document.querySelector("#homepage_body").style.display="block";
   document.querySelector("#messages_page").style.display="none";
   document.querySelector("#notepad").style.display="none";
-  document.querySelector("#nav_bar").style.display="block";
+  document.querySelector("#nav_bar").style.display="none";
   document.querySelector("#photos").style.display="none";
   document.querySelector("#music").style.display="none";
   document.querySelector('#minigame').style.display="none";
+  document.querySelector("#sketchpad").style.display="none";
   console.log("home screen initialized")
 }
 
@@ -119,6 +105,9 @@ const initMessages = () => {
   document.querySelector("#photos").style.display="none";
   document.querySelector("#music").style.display="none";
   document.querySelector('#minigame').style.display="none";
+  document.querySelector('#nav_bar').style.display="block";
+  document.querySelector("#sketchpad").style.display="none";
+  console.log("messages page has loaded");
 }
 
 const initNotepad = () => {
@@ -129,7 +118,15 @@ const initNotepad = () => {
   document.querySelector("#photos").style.display="none";
   document.querySelector("#music").style.display="none";
   document.querySelector('#minigame').style.display="none";
+  document.querySelector('#nav_bar').style.display="block";
+  document.querySelector("#sketchpad").style.display="none";
+  console.log("notepad has loaded");
 }
+
+const photoGalleryImages = [
+  'avatars/Google-Messages.jpg',
+  'notepad.png'
+]
 
 const initPhotos = () => {
   document.querySelector("#login_screen").style.display="none";
@@ -139,6 +136,10 @@ const initPhotos = () => {
   document.querySelector("#photos").style.display="block";
   document.querySelector("#music").style.display="none";
   document.querySelector('#minigame').style.display="none";
+  document.querySelector('#nav_bar').style.display="block";
+  document.querySelector('#nav_bar').style.display="block";
+  document.querySelector("#sketchpad").style.display="none";
+  console.log("photos has loaded")
 }
 
 const initMusic = () => {
@@ -149,6 +150,8 @@ const initMusic = () => {
   document.querySelector("#photos").style.display="none";
   document.querySelector("#music").style.display="block";
   document.querySelector('#minigame').style.display="none";
+  document.querySelector('#nav_bar').style.display="block";
+  document.querySelector("#sketchpad").style.display="none";
 }
 
 const initMinigame = () => {
@@ -158,7 +161,8 @@ const initMinigame = () => {
   document.querySelector("#notepad").style.display="none";
   document.querySelector("#photos").style.display="none";
   document.querySelector("#music").style.display="none";
-  document.querySelector('#minigame').style.display="block"
+  document.querySelector('#minigame').style.display="block";
+  document.querySelector("#sketchpad").style.display="none";
   jump()
   removeJump()
   checkDead()
@@ -192,3 +196,95 @@ function checkDead(){
 }
 
 setInterval(checkDead, 10);
+
+const clickedMessage = () => {
+  document.getElementById("current_message").innerHTML = `you have opened a message`;
+  console.log("message opened")
+}
+
+const animalWallpaper = () => {
+  document.querySelector("#homepage_body").style.backgroundImage="url('avatars/animal wallpaper little cheeatah.jpg')"
+  console.log("wallpaper changed to animal")
+}
+
+const galaxyWallpaper = () => {
+  document.querySelector("#homepage_body").style.backgroundImage="url('avatars/IcHF2k0.jpg')"
+  console.log("wallpaper changed to galaxy")
+}
+
+const initSketchpad = () => {
+  document.querySelector("#login_screen").style.display="none";
+  document.querySelector("#homepage_body").style.display="none";
+  document.querySelector("#messages_page").style.display="none";
+  document.querySelector("#notepad").style.display="none";
+  document.querySelector("#photos").style.display="none";
+  document.querySelector("#music").style.display="none";
+  document.querySelector('#minigame').style.display="none";
+  document.querySelector('#nav_bar').style.display="block";
+document.querySelector("#sketchpad").style.display="block";
+const canvas = document.getElementById("canvas")
+canvas.height = window.innerHeight
+canvas.width = window.innerWidth
+
+const ctx = canvas.getContext("2d")
+
+let prevX = null
+let prevY = null
+
+ctx.lineWidth = 5
+
+let draw = false
+
+let clrs = document.querySelectorAll(".clr")
+clrs = Array.from(clrs)
+clrs.forEach(clr => {
+    clr.addEventListener("click", () => {
+        ctx.strokeStyle = clr.dataset.clr
+    })
+})
+
+let clearBtn = document.querySelector(".clear")
+clearBtn.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+})
+
+// Saving drawing as image
+let saveBtn = document.querySelector(".save")
+saveBtn.addEventListener("click", () => {
+    let data = canvas.toDataURL("imag/png")
+    let a = document.createElement("a")
+    a.href = data
+    // what ever name you specify here
+    // the image will be saved as that name
+    a.download = "sketch.png"
+    a.click()
+})
+
+window.addEventListener("mousedown", (e) => draw = true)
+window.addEventListener("mouseup", (e) => draw = false)
+
+window.addEventListener("mousemove", (e) => {
+    if(prevX == null || prevY == null || !draw){
+        prevX = e.clientX
+        prevY = e.clientY
+        return
+    }
+
+    let currentX = e.clientX
+    let currentY = e.clientY
+
+    ctx.beginPath()
+    ctx.moveTo(prevX, prevY)
+    ctx.lineTo(currentX, currentY)
+    ctx.stroke()
+
+    prevX = currentX
+    prevY = currentY
+})
+
+}
+
+const clickPhoto = () => {
+  console.log("you have clicked on a photo")
+}
+

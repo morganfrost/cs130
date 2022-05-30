@@ -1,6 +1,7 @@
-* {
+body, * {
     font-family: 'Special Elite', cursive;
     text-align: center;
+    margin: 0;
 }
 
 h1{
@@ -44,8 +45,13 @@ h1{
   }
 
 main{
-    text-align: center;
+    /* text-align: center; */
     font-size: larger;
+}
+
+#login{
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 input{
@@ -66,7 +72,8 @@ input:hover{
 #click_to_enter{
   font-size: 30px;
   text-align: justify;
-  padding-top: 10px;
+  margin-top: 10px;
+  padding-top:10px;
   padding-bottom: 7px;
   background-color: #5869DA;
 }
@@ -75,48 +82,77 @@ input:hover{
   background-color: #7987E2;
 } 
 
-#login{
-  display:block;
-}
-
 #homepage_body{
   background-image: url("avatars/IcHF2k0.jpg");
-  background-color: #cccccc;
+  min-height: 100%;
+  width: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
-  padding-top: 60px; 
-  padding-bottom: 0px;
-  color: white;
-
-  display:grid;
-  grid-template-rows: 6fr 1fr;
+  padding-bottom: 70%;
+  /* display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 10fr 10fr 1fr;
   grid-template-areas: 
-  "apps"
-  "control_bar";
+  ". msg msg notes notes . ."
+  ". photos photos music music . ."
+  "msg2 notes2 photos2 music2 settings home user";
+  grid-gap: 10px; */
 }
 
-#control_bar{
-  display: grid;
-  grid-template-columns: 6fr 2fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "filler laptop_name";
-  grid-area: "control_bar";
+#message_click{
+  grid-area: msg;
+}
+
+#notepad_click{
+  grid-area: notes;
+}
+
+#photo_click{
+  grid-area: photos;
+}
+
+#music_click{
+  grid-area: music;
+}
+
+#message_click2{
+  grid-area: msg2;
+}
+
+#notepad_click2{
+  grid-area: notes2;
+}
+
+#photo_click2{
+  grid-area: photos2;
+}
+
+#music_click2{
+  grid-area: music2;
+}
+
+#home_click2{
+  grid-area: home;
+}
+
+#popup{
+  grid-area: settings;
 }
 
 #laptop_name{
   border: 1px white solid;
   text-align: right;
   background-color:#7987E2;
-  grid-area: "laptop_name";
+  grid-area: user;
   padding: 5px;
-  font-size: 40px;
+  font-size: 1vw;
   text-align: center;
-  padding-top: 50px;
+  width:200px;
+  font-family: sans-serif;
+  float:right;
+  /* padding-top: 50px; */
 }
 
 #filler{
@@ -125,22 +161,23 @@ input:hover{
 }
 
 #apps{
-  padding: 200px;
-  display: grid;
-  grid-template-columns: 3fr 3fr 3fr;
-  grid-template-rows: 2fr 2fr;
-  grid-area: "apps";
+  padding: 0px;
 }
 
-#message_click, #notepad_click, #photo_click, #music_click, #wallpaper_click, #home_click{
+#message_click, #notepad_click, #photo_click, #music_click, #wallpaper_click, #home_click, #message_click2, #notepad_click2, #photo_click2, #music_click2, #home_click2{
   color: white;
   background-color: transparent;
   font-size: 30px;
   border: transparent;
+  border: 1px solid white;
 }
 
 #message_click:hover, #notepad_click:hover, #photo_click:hover, #minigame_click:hover, #music_click:hover, #wallpaper_click:hover, #home_click:hover{
   font-weight: bold;
+}
+
+#wallpaper_click:hover, #home_click:hover, #message_click2:hover, #notepad_click2:hover, #photo_click2:hover, #music_click2:hover, #home_click2:hover{
+  background-color: blue;
 }
 
 #minigame_click{
@@ -148,14 +185,29 @@ input:hover{
 }
 
 #notepad{
-  background-image: url("avatars/notepad.png");
   background-color: yellow;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
 
 #nav_bar{
-  border: black 1px solid;
+  border: black 3px solid;
   color: black;
-  background-color: #7987E2;
+  background-color: #585481;
+  display:flex;
+  flex-grow: 1;
+  width: auto;
+  justify-content: center;
+}
+
+#wallpaper_click{
+  text-align: center;
+  width: 200px;
 }
 
 /* Popup container */
@@ -168,8 +220,8 @@ input:hover{
 /* The actual popup (appears on top) */
 .popup .popuptext {
   visibility: hidden;
-  width: 600px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -178,8 +230,12 @@ input:hover{
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: 50%;
   margin-left: -80px;
+  width: 100px;
+  height: 50px;
+  position:fixed; 
+  top: calc(50% - 25px);
+  left: calc(50% - 50px);
 }
 
 /* Popup arrow */
@@ -197,22 +253,15 @@ input:hover{
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+  animation: fadeIn 1s;
+  position: relative;
+  margin: 0 auto;
+  top: 25%;
 }
 
 #wallpaper_popup{
   border: 1px solid black;
+  text-align: center;
 }
 
 #minigame{
@@ -254,4 +303,88 @@ input:hover{
 @keyframes block{
   0%{left: 500px} 
   100%{left: -20px}
+}
+
+#messages_page{
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  grid-template-rows: 1fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-areas: 
+  "h h"
+  "n1 m"
+  "n2 m"
+  "n3 m"
+  "n4 m"
+  "n5 m";
+}
+
+#message_header{
+  grid-area: h;
+}
+
+#name1{
+  grid-area: n1;
+}
+
+#name2{
+  grid-area: n2;
+}
+#name3{
+  grid-area: n3;
+}
+
+#name4{
+  grid-area: n4;
+}
+
+#name5{
+  grid-area: n5;
+}
+
+#current_message{
+  grid-area: m;
+}
+
+#list_of_messages{
+  font-family: 'Inter', sans-serif;;
+}
+
+#current_message{
+  display:block;
+}
+
+#name1, #name2, #name3, #name4, #name5{
+  font-family: 'Inter', sans-serif;
+  border: 1px solid gray;
+}
+
+#close_messages_button{
+  border-radius: 50%;
+  background-color: lightcoral;
+  height: 30px;
+  width: 30px;
+}
+
+#close_messages_button:hover{
+  background-color: red;
+}
+
+#logout_button{
+  border-radius: 0%;
+  padding: 5px;
+  width: 100px;
+  background-color: darkgray;
+  grid-area: logout;
+  float:right;
+}
+
+#logout_button:hover{
+  background-color: gray;
+}
+
+#photos {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: auto;
+  border: 1px black solid;
 }
