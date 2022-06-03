@@ -1,14 +1,21 @@
-body, * {
-    font-family: 'Special Elite', cursive;
+body {
     text-align: center;
     margin: 0;
+    font-family: 'Special Elite', cursive;
 }
 
-h1{
+#login_screen h1{
     margin-top: 100px;
     text-align: center;
     font-size:larger;
     padding-bottom: 100px;
+    font-family: 'Special Elite', cursive;
+    color: black;
+}
+
+.letters{
+  padding-top: 10px;
+  font-size: 60px;
 }
 
 .ml11 {
@@ -52,13 +59,21 @@ main{
 #login{
   padding: 10px;
   margin-bottom: 10px;
+  font-family: 'Special Elite', cursive;
+  align-items: center;
 }
 
-input{
+#login_screen h2{
+  font-size: 40px;
+}
+
+#username{
   width:400px;
   height: 50px;
   font-size: 30px;
   padding-left: 5px;
+  font-family: 'Special Elite', cursive;
+  text-align: center;
 }
 
 input:hover{
@@ -76,6 +91,7 @@ input:hover{
   padding-top:10px;
   padding-bottom: 7px;
   background-color: #5869DA;
+  font-family: 'Special Elite', cursive;
 }
 
 #click_to_enter:hover{
@@ -83,76 +99,52 @@ input:hover{
 } 
 
 #homepage_body{
-  background-image: url("avatars/IcHF2k0.jpg");
-  min-height: 100%;
-  width: 100%;
+  background-image: url("avatars/default_wallpaper.jpg");
+  height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  padding-bottom: 70%;
-  /* display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 10fr 10fr 1fr;
-  grid-template-areas: 
-  ". msg msg notes notes . ."
-  ". photos photos music music . ."
-  "msg2 notes2 photos2 music2 settings home user";
-  grid-gap: 10px; */
+  grid-gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#message_click{
-  grid-area: msg;
+#home_buttons{
+  /* border: 1px solid white; */
+  height: 70vh;
+  width: 70vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
 }
 
-#notepad_click{
-  grid-area: notes;
-}
-
-#photo_click{
-  grid-area: photos;
-}
-
-#music_click{
-  grid-area: music;
-}
-
-#message_click2{
-  grid-area: msg2;
-}
-
-#notepad_click2{
-  grid-area: notes2;
-}
-
-#photo_click2{
-  grid-area: photos2;
-}
-
-#music_click2{
-  grid-area: music2;
-}
-
-#home_click2{
-  grid-area: home;
-}
-
-#popup{
-  grid-area: settings;
+#home_buttons button{
+  width: 100%;
+  font-family: 'Special Elite', cursive;
+  backdrop-filter: blur(10px);
 }
 
 #laptop_name{
   border: 1px white solid;
-  text-align: right;
-  background-color:#7987E2;
+  text-align: center;
+  background-color: #585481;
   grid-area: user;
   padding: 5px;
   font-size: 1vw;
   text-align: center;
-  width:200px;
+  width:auto;
   font-family: sans-serif;
-  float:right;
+  /* float:right; */
   /* padding-top: 50px; */
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-family: 'Special Elite', cursive;
+  font-size: larger;
+  font-weight: bold;
 }
 
 #filler{
@@ -164,20 +156,94 @@ input:hover{
   padding: 0px;
 }
 
-#message_click, #notepad_click, #photo_click, #music_click, #wallpaper_click, #home_click, #message_click2, #notepad_click2, #photo_click2, #music_click2, #home_click2{
+#message_click, #notepad_click, #photo_click, #music_click{
+  color: white;
+  background-color: transparent;
+  font-size: 30px;
+  border: 1px solid white;
+  padding-top: 7px;
+}
+
+#settings_click{
   color: white;
   background-color: transparent;
   font-size: 30px;
   border: transparent;
-  border: 1px solid white;
+  padding-top: 7px;
+}
+
+#settings{
+  color: white;
+  background-color: transparent;
+  font-size: 50px;
+  padding: 7px;
+  text-align: right;
+  width: 200px;
+  position: fixed;
+  right: 10px;
+  bottom: 70px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#settings_page{
+  background-color: lightgray;
+  position: fixed;
+  left: 30%;
+  top: 17%;
+  width: 600px;
+  height: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border: 1px solid black;
+  margin:0;
+}
+
+#settings_page p{
+  font-size: 35px;
+}
+
+#settings_page button{
+  font-family: 'Special Elite', cursive;
+  padding: 0;
+  font-size: larger;
+}
+
+.wallpaper{
+  width: 200px;
+  align-self: center;
+  height: 60px;
+}
+
+#close_settings{
+  border-radius: 100%;
+  background-color: red;
+  position: fixed;
+  top: 19%;
+  left: 65%;
+  width: 30px;
+  height: 30px;
+}
+
+#home_click, #message_click2, #notepad_click2, #photo_click2, #music_click2, #home_click2{
+  border: transparent;
+  color: white;
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 7px;
 }
 
 #message_click:hover, #notepad_click:hover, #photo_click:hover, #minigame_click:hover, #music_click:hover, #wallpaper_click:hover, #home_click:hover{
   font-weight: bold;
+  padding-top: 7px;
+  border-width: 2px;
 }
 
 #wallpaper_click:hover, #home_click:hover, #message_click2:hover, #notepad_click2:hover, #photo_click2:hover, #music_click2:hover, #home_click2:hover{
-  background-color: blue;
+  color: gray;
 }
 
 #minigame_click{
@@ -185,14 +251,48 @@ input:hover{
 }
 
 #notepad{
-  background-color: yellow;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background-image: url("avatars/notepad_background.png");
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+
+#notepad .background-image{
+  height:50vh;
+  width: 250vh;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+#notepad_input1, #notepad_input2{
+  width: 65vh;
+  height: 75vh;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: larger;
+  margin: 25px;
+  margin-top: 90px;
+  text-align: center;
+  background-color: beige;
+  color: black;
+}
+
+#sketchpad_button{
+  background-color: #414288;
+  color: white;
+  font-size: x-large;
+  font-family: 'Shadows Into Light', cursive;
+  width: 300px;
+  height: 350px;
+  margin-left: 40px;
+  border-radius: 25%;
+}
+
+#sketchpad_button:hover{
+  background-color: #5051A5;
 }
 
 #nav_bar{
@@ -200,53 +300,13 @@ input:hover{
   color: black;
   background-color: #585481;
   display:flex;
-  flex-grow: 1;
+  justify-content: space-around;
   width: auto;
-  justify-content: center;
-}
-
-#wallpaper_click{
-  text-align: center;
-  width: 200px;
-}
-
-/* Popup container */
-.popup {
-  position: relative;
-  display:flex;
-  cursor: pointer;
-}
-
-/* The actual popup (appears on top) */
-.popup .popuptext {
-  visibility: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  margin-left: -80px;
-  width: 100px;
-  height: 50px;
-  position:fixed; 
-  top: calc(50% - 25px);
-  left: calc(50% - 50px);
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border: black solid 1px;
+  padding-bottom: 5px;
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
@@ -259,10 +319,10 @@ input:hover{
   top: 25%;
 }
 
-#wallpaper_popup{
+/* #wallpaper_popup{
   border: 1px solid black;
   text-align: center;
-}
+} */
 
 #minigame{
   width: 500px;
@@ -307,55 +367,134 @@ input:hover{
 
 #messages_page{
   display: grid;
-  grid-template-columns: 2fr 5fr;
-  grid-template-rows: 1fr 2fr 2fr 2fr 2fr 2fr;
+  margin-left: 0;
+  grid-template-columns: 4fr 8fr;
+  grid-template-rows: 1fr 4fr;
   grid-template-areas: 
   "h h"
-  "n1 m"
-  "n2 m"
-  "n3 m"
-  "n4 m"
-  "n5 m";
+  "l r";
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  text-align: start;
 }
+
+:root {
+  --send-bg: #0B93F6;
+  --send-color: white;
+  --receive-bg: #E5E5EA;
+  --receive-text: black;
+  --page-background: white;
+}
+
+.send, .receive {
+	/* font-family: "Helvetica Neue", Helvetica, sans-serif; */
+	font-size: 20px;
+	font-weight: normal;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.send, .receive {
+  max-width: 400px;
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  line-height: 24px;
+  position: relative;
+	padding: 10px 20px;
+  border-radius: 25px;
+}
+
+p:before, p:after {
+    content: "";
+		position: absolute;
+    bottom: 0;
+    height: 25px;
+  }
+
+.send {
+	color: var(--send-color); 
+	background: var(--send-bg);
+	align-self: flex-end;
+}
+
+.send:before {
+		right: -7px;
+    width: 20px;
+    background-color: var(--send-bg);
+		border-bottom-left-radius: 16px 14px;
+	}
+
+.send:after {
+		right: -26px;
+    width: 26px;
+    background-color: var(--page-background);
+		border-bottom-left-radius: 10px;
+	}
+.receive {
+	background: var(--receive-bg);
+	color: black;
+  align-self: flex-start;
+}
+.receive:before {
+		left: -7px;
+    width: 20px;
+    background-color: var(--receive-bg);
+		border-bottom-right-radius: 16px 14px;
+	}
+.receive:after {
+		left: -26px;
+    width: 26px;
+    background-color: var(--page-background);
+		border-bottom-right-radius: 10px;
+	}
 
 #message_header{
   grid-area: h;
 }
 
-#name1{
-  grid-area: n1;
-}
-
-#name2{
-  grid-area: n2;
-}
-#name3{
-  grid-area: n3;
-}
-
-#name4{
-  grid-area: n4;
-}
-
-#name5{
-  grid-area: n5;
-}
-
-#current_message{
-  grid-area: m;
+#message_header h1{
+  margin: 0;
+  padding-top: 70px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
 }
 
 #list_of_messages{
-  font-family: 'Inter', sans-serif;;
+  grid-area: l;
+  text-align: center;
 }
 
 #current_message{
-  display:block;
+  grid-area: r;
+  display:flex;
+  flex-direction: column;
+  border: 1px solid #555;
 }
 
-#name1, #name2, #name3, #name4, #name5{
-  font-family: 'Inter', sans-serif;
-  border: 1px solid gray;
+.message_card{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "n t"
+  "m m";
+  padding: 5px;
+  margin: 0;
+  border: 1px solid black;
+}
+
+.message_card p{
+  grid-area: m;
+  padding: 5px;
+  margin: 0;
+}
+
+.message_card h3, .message_card h4{
+  padding: 0px;
+  margin: 0;
 }
 
 #close_messages_button{
@@ -372,10 +511,14 @@ input:hover{
 #logout_button{
   border-radius: 0%;
   padding: 5px;
-  width: 100px;
+  width: 150px;
   background-color: darkgray;
-  grid-area: logout;
-  float:right;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  font-family: 'Special Elite', cursive;
+  font-weight: bold;
+  font-size: larger;
 }
 
 #logout_button:hover{
@@ -384,7 +527,558 @@ input:hover{
 
 #photos {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr 9fr;
   width: auto;
+  margin-bottom: 90px;
+}
+
+#photos p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+  padding: 0;
+  font-weight: bold;
+  border: 1px solid black;
+  padding-top: 7px;
+  align-items: center;
+  background-color: #7987E2;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 0;
+}
+
+#gallery img{
   border: 1px black solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: auto;
+  height: 330px;
+  width: 330px;
+  border-radius: 20%;
+}
+
+.clear {
+  position: fixed;
+  top: 50px;
+}
+
+.save {
+  position: fixed;
+  top: 100px;
+}
+
+/* MUSIC PAGE */
+
+#music body {
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+a, a:hover, a:visited, a:active { 
+  color: black;
+  text-decoration: none;
+}
+
+#sidebar h1 {
+  font-size: 1.8em;
+  color: black;
+}
+
+
+/* ***********************************************************
+ LAYOUTS
+ *********************************************************** */
+#music {
+  box-sizing: border-box;
+  color: black;
+  font-size: smaller;
+}
+#sidebar, #music footer, #music header, article {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+#music {
+  overflow: hidden;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-template-rows: auto 275px;
+  grid-template-areas:
+     "left main"
+     "bottom bottom";
+  height: 100vh;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+#sidebar {
+  grid-area: left;
+  border-right: dotted #999 1px;   
+  background-color: #EAD7E0; 
+}
+
+#music header {
+  position: fixed;
+  width: calc(100vw - 250px);
+  left: 250px;
+  background: #fff;
+  border-bottom: dotted #999 1px;   
+}
+
+#music_main {
+  grid-area: main;
+  min-height: calc(350px);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 3;
+  background-color: pink;
+  display: grid;
+  grid-template-columns: 400fr auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "artist song"
+  "album .";
+  display: flex;
+}
+
+#music footer {
+  grid-area: bottom;
+  border-top: dotted #999 1px;  
+}
+
+/* ***********************************************************
+ LEFT NAVIGATION
+ *********************************************************** */
+
+#sidebar {
+  padding: 5px 25px;
+  flex-direction: column;
+  color: #000;
+  text-align: left;
+}
+#sidebar h1 {
+  margin-bottom: 40px;
+}
+
+#sidebar .fa-spotify {
+  font-size: 1.5em;
+}
+
+#sidebar a {
+  border-left: solid 3px transparent;
+  align-self: center;
+  width: 100%;
+  margin-bottom: 10px;
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#sidebar a i {
+  margin-right: 15px;
+}
+
+#sidebar a.selected, #sidebar a:hover {
+  border-left: solid 3px hotpink;
+}
+
+/* ***********************************************************
+ HEADER
+ *********************************************************** */
+#music_header a,
+#music_header a:visited, 
+#music_header {
+  padding: 10px;
+  height: 100px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
+#music_header #search {
+  color: #000;
+  padding: 6px 10px 6px 48px;
+  height: 40px;
+  line-height: 40px;
+  border: solid 1px #000;
+  border-radius: 500px;
+  font-size: left;
+  margin-right: auto;
+  width: 80%;
+  font-size: 1.1em;
+  font-weight:500;
+}
+
+#music_header .fa-search {
+  left: 25px;
+  top: 80px;
+  position: absolute;
+  color: #CCC;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #CCC;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #CCC;;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #CCC;
+}
+
+/* ***********************************************************
+ ARTISTS, ALBUMS, & TRACKS
+ *********************************************************** */
+
+#featured-content {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding:0px;
+  margin-top: 100px;
+  font-size: smaller;
+}
+
+#artist-section {
+  width: 40%;
+  padding-left: 30px;
+  grid-area: artist;
+}
+
+#artist-section h1{
+  font-size: x-large;
+  text-align: left;
+}
+
+#track-section {
+  width: 60%;
+  padding-left: 30px;
+  grid-area: song;
+}
+
+#track-section h1{
+  font-size: x-large;
+  text-align: left;
+}
+
+#album-section {
+  width: 100%;
+  padding-left: 30px;
+  grid-area: album;
+  display: flex;
+  flex-direction: row;
+}
+
+#album-section h1{
+  font-size: x-large;
+  text-align: left;
+}
+
+#albums {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding:0px;
+}
+
+.artist-card {
+  background: #F0F0F0;
+  border-radius: 20px;
+  height: 340px;
+}
+.artist-card > div {
+  padding: 20px;
+}
+.artist-card img {
+  border-radius: 50%;
+  margin: auto;
+  max-height: 200px;
+  max-width: 100%;
+}
+
+.album-card {
+  width: 20%;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+}
+
+.album-card > div {
+  padding: 20px;
+  /* height: 100%; */
+  border: dotted 1px #999;
+  overflow-x: hidden;
+}
+.album-card h2, .track-item h2 {
+  font-size: 0.95em;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  max-width: calc((100vw - 250px) / 8);
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+.album-card img {
+  width: 100%;
+}
+.album-card .footer {
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+}
+.album-card .play-button {
+  color: white;
+  display: flex;
+  justify-content: center;
+  border-radius: 18px;
+  background: hotpink;
+  width: 36px;
+  height: 36px;
+  line-height: 30px;
+  align-items: center;
+  padding-left: 2px;
+}
+
+.track-item {
+  display: flex;
+  padding: 5px 0px 0px 5px;
+  width: 80%;
+  min-width: 200px;
+  flex-direction: row;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.track-item:focus {
+  outline: 1px solid #1cb954;
+}
+
+.track-item.preview:hover {
+  background: #EAD7E0;
+}
+.track-item i.play-track {
+  display: none;
+}
+.track-item.preview:hover i.play-track,
+.track-item.preview:active i.play-track,
+.track-item.preview:focus i.play-track {
+  position: relative;
+  display: inline;
+  left: -1.4em;
+  top: 0.4em;
+  color: #fff;
+  font-size: 2em;
+  width: 0px;
+}
+.track-item img {
+  height: 60px;
+  border: solid 1px #ccc;
+}
+.track-item .label {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.track-item .label h2 {
+  margin-bottom: 0px;
+  font-size: 1em;
+}
+.track-item .label p {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* ***********************************************************
+ AUDIO PLAYER
+ *********************************************************** */
+
+#music footer, #controls, #slider, #player {
+  display: flex;
+  flex-direction: row;
+  color: #444;
+}
+#music footer {
+  /* position: fixed; */
+  /* bottom: 500px;
+  left: 50%; */
+  background-color: white;
+}
+
+#music footer .track-item {
+  width: 30%;
+  min-width: 200px;
+  padding: 5px 9px 0px 10px;
+}
+#music_footer .track-item:hover {
+  background: none;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-width: 400px;
+}
+.player .controls {
+  height: 40px;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  width: 110px;
+  align-self: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.player .controls button {
+  background: transparent;
+  border: none;
+}
+.player .controls i {
+  font-size: 1.2em;
+  color: #222;
+}
+
+.player .controls i:hover {
+  color: #777;
+}
+.player .controls .fa-play-circle, 
+.player .controls .fa-pause-circle {
+  font-size: 35px;
+}
+
+.player .slider {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 25px;
+  align-items: center;
+}
+.player span {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+}
+
+.player #time-elapsed {
+  margin-right: 32px;
+}
+
+.player #time-total {
+  margin-left: 32px;
+}
+
+[type='range'] {
+outline: none;
+  background: transparent;
+  font: 1em/1 arial, sans-serif;
+  -webkit-appearance: none;
+  width: 100%;
+}
+#search[type=range]::-moz-range-track {
+  background-color: #777;
+}
+
+[type='range']::-webkit-slider-runnable-track {
+box-sizing: border-box;
+border: none;
+width: 12.5em;
+height: 0.15em;
+background: #777;
+}
+
+[type='range']::-webkit-slider-thumb {
+margin-top: -0.55em;
+-webkit-appearance: none;
+box-sizing: border-box;
+border: none;
+width: 1.2em;
+height: 1.2em;
+border-radius: 50%;
+background: #1cb954;
+}
+/* 
+h2 {
+  font-size: 1.2em;
+} */
+
+/* ***********************************************************
+ MEDIA QUERIES
+ *********************************************************** */
+
+
+@media screen and (max-width: 1200px) {
+  .album-card {
+      width: 25%;
+  }
+  .album-card h2 {
+      max-width: calc((100vw - 250px) / 6);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .album-card {
+      width: 33%;
+  }
+  .album-card h2 {
+      max-width: calc((100vw - 250px) / 5);
+  }
+
+  #artist-section {
+      width: 100%;
+      padding: 0px 30px 0px 30px;
+  }
+  #artist {
+      height: auto;
+  }
+  #track-section {
+      width: 100%;
+      padding: 0px 30px 0px 30px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  body {
+      overflow: hidden;
+      margin: 0px;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-areas:
+         "main"
+         "bottom";
+      height: 100vh;
+  }
+  header {
+      left: 0px;
+      width: 100vw;
+  }
+  aside, #upgrade {
+      display: none;
+  }
+
+  .player {
+      min-width: 200px;
+      width: auto;
+      margin-left: 30px;
+  }
+  .player #time-elapsed {
+      margin-right: 12px;
+  }
+  .player #time-total {
+      margin-left: 12px;
+  }
+  .album-card {
+      width: 50%;
+      height: auto;
+  }
+  .album-card h2 {
+      max-width: calc((100vw - 250px) / 2);
+  }
 }

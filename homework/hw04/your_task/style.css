@@ -42,8 +42,10 @@ header {
     width: calc(100vw - 250px);
     left: 250px;
     background: #fff;
-    border-bottom: dotted #999 1px;   
+    border-bottom: dotted #999 1px;
+    margin: 0;   
 }
+
 
 main {
     grid-area: main;
@@ -392,9 +394,9 @@ input[type=range]::-moz-range-track {
   background: #1cb954;
 }
 
-h2 {
+/* h2 {
     font-size: 1.2em;
-}
+} */
 
 
 
@@ -404,7 +406,7 @@ h2 {
    MEDIA QUERIES
    *********************************************************** */
 
-
+/* 
 @media screen and (max-width: 1200px) {
     .album-card {
         width: 25%;
@@ -473,4 +475,4 @@ h2 {
     .album-card h2 {
         max-width: calc((100vw - 250px) / 2);
     }
-}
+} */
