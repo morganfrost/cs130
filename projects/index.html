@@ -49,7 +49,7 @@
                 </section>
 
                 <section id="settings">
-                    <button onclick="initSettings()" type="button" id="settings_click"><i class="fa-solid fa-gears" id="gears"></i></button>
+                    <button onclick="initSettings()" type="button" id="settings_click" aria-label="Settings"><i class="fa-solid fa-gears" id="gears"></i></button>
                 </section>
 
                 <section id="settings_page">
@@ -75,34 +75,36 @@
                 <!-- <button id="close_messages_button" onclick="initHomeScreen()">x</button> -->
             </header>
             <div id="list_of_messages">
-                <div class="message_card" id="name1" onclick="clickedMessage()">
-                    <h3>name 1</h3>
-                    <h4>timestamp</h4>
-                    <p>Preview text message</p>
+                <div class="message_card" id="name1" onclick="clickedMessageJeremy()">
+                    <h3>Jeremy</h3>
+                    <h4>7:54pm</h4>
+                    <p>I'm sorry I shouldn't have said anything</p>
                 </div>
                 <div class="message_card" id="name2" onclick="clickedMessage()">
-                    <h3>name 2</h3>
-                    <h4>timestamp</h4>
-                    <p>Preview text message</p>
+                    <h3>Naya</h3>
+                    <h4>7:14pm</h4>
+                    <p>Bio is sucking the life out of me</p>
                 </div>
                 <div class="message_card" id="name3" onclick="clickedMessage()">
-                    <h3>name 3</h3>
-                    <h4>timestamp</h4>
-                    <p>Preview text message</p>
+                    <h3>Jess</h3>
+                    <h4>6:11pm</h4>
+                    <p>Can u send notes from today</p>
                 </div>
                 <div class="message_card" id="name4" onclick="clickedMessage()">
-                    <h3>name 4</h3> 
-                    <h4>timestamp</h4>
-                    <p>Preview text message</p>
+                    <h3>Rowan</h3> 
+                    <h4>3:43pm</h4>
+                    <p>Hey we haven't talked in a while is everything ok?</p>
                 </div>
                 <div class="message_card" id="name5" onclick="clickedMessage()">
-                    <h3>name 5</h3>
-                    <h4>timestamp</h4>
-                    <p>Preview text message</p>
+                    <h3>Lee</h3>
+                    <h4>12:04pm</h4>
+                    <p>I have ur stuff come get it</p>
                 </div>
             </div>
             <div id="current_message">
                 <p>Select a message on the left to open a conversation.</p>
+            </div>
+            <div id="response">
             </div>
             <!-- <button onclick="initMinigame()" type="button" id="minigame_click">minigame</button> -->
         </div>
@@ -137,15 +139,15 @@
                 <i class="fa-solid fa-camera-retro"></i>
             </p>
             <section id="gallery" class="images">
-                <img src="avatars/smirk ma.png" onclick="clickPhoto()">
-                <img src="avatars/short-hair-woman.png" onclick="clickPhoto()">
-                <img src="avatars/notepad.png" onclick="clickPhoto()">
-                <img src="avatars/smirk ma.png" onclick="clickPhoto()">
-                <img src="avatars/woman-white-hair.png" onclick="clickPhoto()">
-                <img src="avatars/black-woman.png" onclick="clickPhoto()">
-                <img src="avatars/green-hair-woman.png" onclick="clickPhoto()">
-                <img src="avatars/green-hair-man.png" onclick="clickPhoto()">
-                <img src="avatars/hijabi-woman.png" onclick="clickPhoto()">
+                <img src="avatars/smirk ma.png" onclick="clickPhoto()" alt="Photo of smirking man">
+                <img src="avatars/short-hair-woman.png" onclick="clickPhoto()" alt="Photo of woman with short hair">
+                <img src="avatars/notepad.png" onclick="clickPhoto()" alt="photo of a notepad">
+                <img src="avatars/smirk ma.png" onclick="clickPhoto()" alt="Photo of smirking man">
+                <img src="avatars/woman-white-hair.png" onclick="clickPhotoJessica()" alt="Photo of a woman with white hair">
+                <img src="avatars/black-woman.png" onclick="clickPhoto()" alt="Photo of a woman with curly brown hair">
+                <img src="avatars/green-hair-woman.png" onclick="clickPhoto()" alt="Photo of a woman with green hair">
+                <img src="avatars/green-hair-man.png" onclick="clickPhoto()" alt="Photo of a man with green hair">
+                <img src="avatars/hijabi-woman.png" onclick="clickPhoto()" alt="Photo of a woman wearing a head covering">
             </section>
         </section>
 
@@ -164,6 +166,7 @@
         
                 <main id="music_main">
                     <header id="music_header">
+                        <p id="music_q">What music do you feel like listening to?</p>
                         <i class="fas fa-search"></i>
                         <input type="search" 
                             placeholder="Search for Artists or Songs" 
@@ -238,9 +241,8 @@
                             <span id="time-elapsed">0:00</span>
                             <input aria-label="visually displays how the audio time is advancing" type="range" id="player-time">
                             <span id="time-total">3:00</span>
+                            <audio id="track" src="" >
                         </div>
-                        <audio id="track" src="" >
-                    </div>
                 </footer>
             </body>
         </div>
@@ -251,11 +253,11 @@
         </div>
 
         <div id="nav_bar">
-            <button onclick="initMessages()" type="button" id="message_click2"><i class="fa-solid fa-comments"></i></button>
-            <button onclick="initNotepad()" type = "button" id="notepad_click2"><i class="fa-solid fa-pencil"></i></button>
-            <button onclick="initPhotos()" type="button" id="photo_click2"><i class="fa-solid fa-image"></i></button>
-            <button onclick="initMusic()" type="button" id="music_click2"><i class="fa-solid fa-music"></i></button>
-            <button onclick="initHomeScreen()" type="button" id="home_click2"><i class="fa-solid fa-house"></i></button>
+            <button onclick="initMessages()" type="button" id="message_click2" aria-label="Messages"><i class="fa-solid fa-comments"></i></button>
+            <button onclick="initNotepad()" type = "button" id="notepad_click2" aria-label="Notepad"><i class="fa-solid fa-pencil"></i></button>
+            <button onclick="initPhotos()" type="button" id="photo_click2" aria-label="Photos"><i class="fa-solid fa-image"></i></button>
+            <button onclick="initMusic()" type="button" id="music_click2" aria-label="Music"><i class="fa-solid fa-music" ></i></button>
+            <button onclick="initHomeScreen()" type="button" id="home_click2" aria-label="Home"><i class="fa-solid fa-house" ></i></button>
             <!-- <p id="laptop_name">
                 <i class="fa-solid fa-user">username's laptop</i>
             </p> -->

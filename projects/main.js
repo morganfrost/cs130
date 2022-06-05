@@ -23,6 +23,7 @@ document.querySelector("#photos").style.display="none";
 document.querySelector("#music").style.display="none";
 document.querySelector('#minigame').style.display="none";
 document.querySelector("#sketchpad_page").style.display="none";
+document.querySelector("#sketchpad").style.display="none";
 
 console.log('login initialized 2');
 
@@ -83,6 +84,8 @@ const initHomeScreen = () => {
   document.querySelector('#minigame').style.display="none";
   document.querySelector("#sketchpad").style.display="none";
   document.querySelector("#settings_page").style.display="none";
+  document.querySelector("#sketchpad_page").style.display="none";
+  document.querySelector("#sketchpad").style.display="none";
   console.log("home screen initialized")
 }
 
@@ -128,21 +131,88 @@ const initMessages = () => {
   document.querySelector('#minigame').style.display="none";
   document.querySelector('#nav_bar').style.display="flex";
   document.querySelector("#sketchpad").style.display="none";
+  document.querySelector("#sketchpad_page").style.display="none";
   console.log("messages page has loaded");
 }
 
-const clickedMessage = () => {
+const clickedMessageJeremy = () => {
   document.getElementById("current_message").innerHTML = `
-    <p class="send">Hey there! What's up</p>
-    <p class="receive">Checking out iOS7 you know..</p>
-    <p class="send">Check out this bubble!</p>
-    <p class="receive">It's pretty cool…</p>
-    <p class="receive">Not gonna lie!</p>
-    <p class="send">Yeah it's pure CSS &amp; HTML</p>
-    <p class="receive">Wow that's impressive. But what's even more impressive is that this bubble is really high.</p>`;
+    <p class="receive">Hey ${username}. Did you hear about Casey?</p>
+    <p class="send">No lol what about them?</p>
+    <p class="receive">Shit maybe I shouldn't be the one to tell you</p>
+    <p class="receive">You should call luke</p>
+    <p class="send">Uh what</p>
+    <p class="receive">Yeah call luke</p>
+    <p class="send">He's not picking up</p>
+    <p class="receive">I'm sorry I shouldn't have said anything</p>`;
+  document.querySelector(".message_card").style.backgroundColor = "white";
   console.log("message opened")
+  document.getElementById("response").innerHTML = `
+  <p> How would you like to respond?</p>
+  <button onclick=push()>Push for more information</button>
+  <button onclick=letgo()>Let it go</button>`
 }
 
+const push = () =>{
+    document.getElementById("current_message").innerHTML = `
+    <p class="receive">Hey ${username}. Did you hear about Casey?</p>
+    <p class="send">No lol what about them?</p>
+    <p class="receive">Shit maybe I shouldn't be the one to tell you</p>
+    <p class="receive">You should call luke</p>
+    <p class="send">Uh what</p>
+    <p class="receive">Yeah call luke</p>
+    <p class="send">He's not picking up</p>
+    <p class="receive">I'm sorry I shouldn't have said anything</p>
+    <p class="send">Jeremy this isn't funny. What's going on?</p>
+    `;
+    document.querySelector("#response").style.display="none";
+    document.getElementById("name2").innerHTML = 
+    `<h3>Naya</h3>
+    <h4>7:14pm</h4>
+    <p>${username} where are u rn</p>`;
+    document.querySelector("#name2").style.color="blue";
+
+}
+
+const letgo = () => {
+    document.getElementById("current_message").innerHTML = `
+    <p class="receive">Hey ${username}. Did you hear about Casey?</p>
+    <p class="send">No lol what about them?</p>
+    <p class="receive">Shit maybe I shouldn't be the one to tell you</p>
+    <p class="receive">You should call luke</p>
+    <p class="send">Uh what</p>
+    <p class="receive">Yeah call luke</p>
+    <p class="send">He's not picking up</p>
+    <p class="receive">I'm sorry I shouldn't have said anything</p>
+    <p class="send">Uh lol ok no worries</p>
+    `;
+    alert("Maybe I should text Casey and ask them what's going on since Luke isn't picking up.");
+    document.querySelector("#response").style.display="none";
+}
+
+const clickedMessage = () => {
+    document.querySelector("#response").style.display="flex";
+    document.getElementById("current_message").innerHTML = `
+        <p class="receive">Hi ${username}! I hope you're enjoying the site so far.</p>
+        <p class="receive">This part isn't fully built yet, but feel free to keep exploring!</p>`;
+    document.getElementById("response").innerHTML = `
+        <p> How would you like to respond?</p>
+        <button onclick=sayThanks() id=thanks>Say thanks for the info!</button>
+        <button onclick=distractYourself()>Distract yourself from your disappointment</button>`
+}
+
+const sayThanks = () => {
+    document.getElementById("current_message").innerHTML = `
+        <p class="receive">Hi ${username}! I hope you're enjoying the site so far.</p>
+        <p class="receive">This part isn't fully built yet, but feel free to keep exploring!</p>
+        <p class="send">Thanks for letting me know! 😊 </p>`;
+    document.querySelector("#response").style.display="none";
+}
+
+const distractYourself = () => {
+    window.open("https://www.youtube.com/watch?v=rS00xWnqwvI");
+    document.querySelector("#response").style.display="none";
+}
 
 const initNotepad = () => {
   document.querySelector("#login_screen").style.display="none";
@@ -180,6 +250,7 @@ const initPhotos = () => {
   document.querySelector('#minigame').style.display="none";
   document.querySelector('#nav_bar').style.display="flex";
   document.querySelector("#sketchpad").style.display="none";
+  document.querySelector("#sketchpad_page").style.display="none";
 
 //   photoGalleryImages.forEach((image, idx) => {
 //     document.querySelector('.images').innerHTML += `
@@ -203,6 +274,7 @@ const initMusic = () => {
   document.querySelector("#music").style.display="grid";
   document.querySelector('#minigame').style.display="none";
   document.querySelector('#nav_bar').style.display="flex";
+  document.querySelector("#sketchpad_page").style.display="none";
   document.querySelector("#sketchpad").style.display="none";
 }
 
@@ -214,6 +286,7 @@ const initMinigame = () => {
   document.querySelector("#photos").style.display="none";
   document.querySelector("#music").style.display="none";
   document.querySelector('#minigame').style.display="block";
+  document.querySelector("#sketchpad_page").style.display="none";
   document.querySelector("#sketchpad").style.display="none";
   jump()
   removeJump()
@@ -324,6 +397,10 @@ window.addEventListener("mousemove", (e) => {
 const clickPhoto = () => {
   console.log("you have clicked on a photo")
 }
+
+const clickPhotoJessica = () => {
+    alert(`I remember taking that photo of Jessie. Everyone thought the bleached hair looked great on her.`)
+  }
 
 const AudioPlayer = (selector, audioFile) => {
   let audio;
